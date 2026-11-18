@@ -230,8 +230,12 @@ strong { font-weight: 600; color: var(--texto); }
 .boton-icono:hover { color: var(--texto); border-color: var(--borde-fuerte); }
 .boton-icono svg { width: 18px; height: 18px; }
 
-html[data-theme="dark"] .icono-sol,
-html[data-theme="light"] .icono-luna { display: none; }
+html[data-theme="dark"] .icono-luna,
+html[data-theme="light"] .icono-sol { display: none; }
+
+/* En tema claro los acentos son más oscuros: el texto va en blanco. */
+html[data-theme="light"] .boton--primario,
+html[data-theme="light"] .marca__sigla { color: #fff; }
 
 .boton-menu {
   display: none;
