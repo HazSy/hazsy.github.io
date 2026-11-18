@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Óscar López Pellicer · Desarrollador Full Stack Junior</title>
+  <meta name="description" content="Portfolio de Óscar López Pellicer, estudiante de 2º de DAW en Murcia. Aplicaciones web completas con TypeScript, React, Node, Python, PHP y bases de datos.">
+  <meta name="author" content="Óscar López Pellicer">
+  <meta name="theme-color" content="#0b0f14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Óscar López Pellicer · Desarrollador Full Stack Junior">
+  <meta property="og:description" content="Aplicaciones web completas, con tests, documentación y CI. Estudiante de 2º de DAW en Murcia.">
+  <meta property="og:url" content="https://hazsy.github.io/">
+  <meta property="og:image" content="https://hazsy.github.io/assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="https://hazsy.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script>
+    // Evita el destello de tema incorrecto: se aplica antes de pintar.
+    (function () {
+      try {
+        var guardado = localStorage.getItem("tema");
+        var sistema = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.dataset.theme = guardado || sistema;
+      } catch (e) { /* modo privado */ }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Óscar López Pellicer",
+    "jobTitle": "Desarrollador Full Stack Junior",
+    "url": "https://hazsy.github.io/",
+    "email": "mailto:oscarlopezpellicer6@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Murcia", "addressCountry": "ES" },
+    "sameAs": ["https://github.com/HazSy"],
+    "knowsAbout": ["TypeScript", "React", "Node.js", "Python", "PHP", "MySQL", "Inteligencia artificial aplicada"]
+  }
+  </script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera" id="cabecera">
+    <div class="contenedor cabecera__interior">
+      <a class="marca" href="#inicio" aria-label="Inicio, Óscar López Pellicer">
+        <span class="marca__sigla" aria-hidden="true">OL</span>
+        <span class="marca__texto">óscar<span>.dev</span></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#stack">Stack</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#formacion">Formación</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav__github" href="https://github.com/HazSy" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+
+      <div class="cabecera__acciones">
+        <button class="boton-icono" id="tema" type="button" aria-label="Cambiar a tema claro" aria-pressed="false">
+          <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+          <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+        <button class="boton-menu" id="menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio">
+      <div class="hero__fondo" aria-hidden="true"></div>
+      <div class="contenedor hero__grid">
+        <div class="hero__texto">
+          <p class="pildora aparecer">
+            <span class="pildora__punto" aria-hidden="true"></span>
+            Disponible para prácticas y primer empleo
+          </p>
+
+          <h1 class="aparecer">
+            Óscar<br>
+            <span class="degradado">López Pellicer</span>
+          </h1>
+
+          <p class="hero__rol aparecer">Desarrollador Full Stack Junior</p>
+
+          <p class="hero__intro aparecer">
+            Estudiante de <strong>2º de Desarrollo de Aplicaciones Web</strong> en Murcia.
+            Construyo aplicaciones completas —API, base de datos y frontend— y las entrego
+            con tests, documentación y CI. Me interesa sobre todo la <strong>IA aplicada</strong>:
+            RAG, agentes y automatización con criterio.
+          </p>
+
+          <div class="hero__acciones aparecer">
+            <a class="boton boton--primario" href="#proyectos">
+              Ver proyectos
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
+            <a class="boton boton--fantasma" href="#contacto">Hablemos</a>
+          </div>
+
+          <ul class="hero__datos aparecer" aria-label="Datos rápidos">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg> Murcia, España</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg> <a href="mailto:oscarlopezpellicer6@gmail.com">oscarlopezpellicer6@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="hero__codigo aparecer" aria-hidden="true">
+          <div class="ventana">
+            <div class="ventana__barra">
+              <span></span><span></span><span></span>
+              <p>perfil.ts</p>
+            </div>
+            <pre><code><span class="c-com">// Lo que hay detrás de este portfolio</span>
+<span class="c-kw">const</span> <span class="c-var">oscar</span> = {
+  rol: <span class="c-str">"Full Stack Junior"</span>,
+  formacion: <span class="c-str">"2º DAW · en curso"</span>,
+  ubicacion: <span class="c-str">"Murcia, ES"</span>,
+  stack: [
+    <span class="c-str">"TypeScript"</span>, <span class="c-str">"React"</span>,
+    <span class="c-str">"Node"</span>, <span class="c-str">"Python"</span>, <span class="c-str">"PHP"</span>,
+  ],
+  foco: <span class="c-str">"IA aplicada + web"</span>,
+  <span class="c-fn">disponible</span>: () <span class="c-kw">=></span> <span class="c-kw">true</span>,
+};</code></pre>
+            <div class="ventana__pie">
+              <span class="punto-verde" aria-hidden="true"></span>
+              <span>4 proyectos · 87 tests en verde</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor">
+        <dl class="cifras aparecer">
+          <div><dt>Proyectos publicados</dt><dd>4</dd></div>
+          <div><dt>Tests automatizados</dt><dd>87</dd></div>
+          <div><dt>Año de DAW</dt><dd>2º</dd></div>
+          <div><dt>Ubicación</dt><dd>Murcia</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE MÍ ================= -->
+    <section class="seccion" id="sobre-mi">
+      <div class="contenedor">
+        <header class="seccion__cabecera aparecer">
+          <p class="etiqueta">01 · Sobre mí</p>
+          <h2>Curiosidad por dentro,<br>código legible por fuera</h2>
+        </header>
+
+        <div class="sobre__grid">
+          <div class="sobre__texto aparecer">
+            <p>
+              Empecé en la informática trasteando con Java y bases de datos, y acabé
+              enganchado a la web porque permite ver el resultado de lo que escribes.
+              Ahora estoy en segundo de DAW y compagino las clases con proyectos propios
+              para no quedarme solo en la teoría.
+            </p>
+            <p>
+              No me conformo con que algo funcione: quiero entender por qué funciona.
+              Por eso mis repositorios incluyen tests, un README que explica las decisiones
+              técnicas y un flujo de integración continua que verifica cada cambio.
+            </p>
+            <p>
+              Busco un equipo donde aprender de gente con más experiencia, aportar desde
+              el primer día y crecer hacia un perfil full stack con especial interés en
+              la inteligencia artificial aplicada.
+            </p>
+          </div>
+
+          <ul class="pilares">
+            <li class="aparecer">
+              <span class="pilar__icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M14 4l-4 16"/></svg>
+              </span>
+              <h3>Backend con fundamentos</h3>
+              <p>APIs REST, autenticación, validación y SQL. Diseño pensando en qué pasa cuando algo falla.</p>
+            </li>
+            <li class="aparecer">
+              <span class="pilar__icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+              </span>
+              <h3>Frontend cuidado</h3>
+              <p>Interfaces accesibles y responsive con TypeScript y React. Componentes claros, sin dependencias de más.</p>
+            </li>
+            <li class="aparecer">
+              <span class="pilar__icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg>
+              </span>
+              <h3>IA aplicada con criterio</h3>
+              <p>RAG, embeddings y flujos con LangGraph. La IA como herramienta medible, no como adorno.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STACK ================= -->
+    <section class="seccion seccion--alt" id="stack">
+      <div class="contenedor">
+        <header class="seccion__cabecera aparecer">
+          <p class="etiqueta">02 · Stack</p>
+          <h2>Herramientas que uso<br>y sé justificar</h2>
+          <p class="seccion__intro">
+            Sin barras de porcentaje inventadas: esto es lo que he usado en proyectos reales
+            y lo que puedo defender en una entrevista.
+          </p>
+        </header>
+
+        <div class="stack__grid">
+          <article class="stack__grupo aparecer">
+            <h3>Frontend</h3>
+            <ul>
+              <li>HTML5 <span>semántico y accesible</span></li>
+              <li>CSS3 <span>Grid, Flexbox, responsive</span></li>
+              <li>JavaScript <span>ES2023, DOM, fetch</span></li>
+              <li>TypeScript <span>modo strict</span></li>
+              <li>React <span>hooks, estado, test con Vitest</span></li>
+              <li>Vite <span>build y dev server</span></li>
+            </ul>
+          </article>
+
+          <article class="stack__grupo aparecer">
+            <h3>Backend</h3>
+            <ul>
+              <li>Node.js + Express <span>APIs REST</span></li>
+              <li>Python + FastAPI <span>async, SSE, Pydantic</span></li>
+              <li>PHP 8 <span>MVC propio, PDO</span></li>
+              <li>Java <span>POO, fundamentos</span></li>
+              <li>JWT / sesiones <span>autenticación</span></li>
+            </ul>
+          </article>
+
+          <article class="stack__grupo aparecer">
+            <h3>Datos</h3>
+            <ul>
+              <li>MySQL / MariaDB <span>SQL, vistas, triggers</span></li>
+              <li>SQLite <span>desarrollo y tests</span></li>
+              <li>Prisma <span>modelado y migraciones</span></li>
+              <li>Diseño relacional <span>normalización e índices</span></li>
+            </ul>
+          </article>
+
+          <article class="stack__grupo aparecer">
+            <h3>IA y automatización</h3>
+            <ul>
+              <li>LangGraph <span>grafos de agentes</span></li>
+              <li>RAG <span>recuperación y citas</span></li>
+              <li>LLM APIs <span>prompts y salidas estructuradas</span></li>
+              <li>Embeddings <span>búsqueda semántica</span></li>
+            </ul>
+          </article>
+
+          <article class="stack__grupo aparecer">
+            <h3>Herramientas</h3>
+            <ul>
+              <li>Git + GitHub <span>ramas y pull requests</span></li>
+              <li>GitHub Actions <span>CI en cada push</span></li>
+              <li>Docker <span>imágenes de aplicación</span></li>
+              <li>PHPUnit / Vitest / pytest <span>testing</span></li>
+              <li>VS Code / IntelliJ <span>depuración</span></li>
+            </ul>
+          </article>
+
+          <article class="stack__grupo aparecer">
+            <h3>Buenas prácticas</h3>
+            <ul>
+              <li>Accesibilidad <span>WCAG, teclado, contraste</span></li>
+              <li>Seguridad <span>CSRF, XSS, SQLi, cookies</span></li>
+              <li>Documentación <span>README y decisiones</span></li>
+              <li>Metodología <span>commits pequeños, issues</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROYECTOS ================= -->
+    <section class="seccion" id="proyectos">
+      <div class="contenedor">
+        <header class="seccion__cabecera aparecer">
+          <p class="etiqueta">03 · Proyectos</p>
+          <h2>Cuatro aplicaciones,<br>cuatro problemas distintos</h2>
+          <p class="seccion__intro">
+            Cada proyecto resuelve un caso real, tiene tests que se ejecutan en CI y un README
+            con las decisiones técnicas. El código está en
+            <a href="https://github.com/HazSy" target="_blank" rel="noopener noreferrer">GitHub</a>.
+          </p>
+        </header>
+
+        <div class="proyectos">
+          <!-- DocuAsk -->
+          <article class="proyecto aparecer">
+            <div class="proyecto__cabecera">
+              <span class="proyecto__num" aria-hidden="true">01</span>
+              <span class="proyecto__tipo">IA aplicada · RAG</span>
+            </div>
+            <h3>DocuAsk</h3>
+            <p class="proyecto__resumen">
+              Asistente que responde preguntas sobre tus apuntes citando el fragmento exacto
+              del que sale cada afirmación. Si la respuesta no está en los documentos, lo dice.
+            </p>
+            <ul class="proyecto__detalles">
+              <li>Pipeline RAG con <strong>LangGraph</strong>: recuperación BM25, generación y verificación de citas.</li>
+              <li>API con <strong>FastAPI</strong> y streaming por <strong>SSE</strong> hacia una interfaz propia.</li>
+              <li>Proveedor offline para probar sin claves ni coste; <strong>24 tests</strong> con pytest.</li>
+            </ul>
+            <ul class="chips" aria-label="Tecnologías">
+              <li>Python</li><li>FastAPI</li><li>LangGraph</li><li>SSE</li><li>pytest</li>
+            </ul>
+            <div class="proyecto__enlaces">
+              <a class="enlace-flecha" href="https://github.com/HazSy/docuask-rag" target="_blank" rel="noopener noreferrer">
+                Ver código
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+              </a>
+              <span class="proyecto__meta">24 tests</span>
+            </div>
+          </article>
+
+          <!-- Nimbus -->
+          <article class="proyecto aparecer">
+            <div class="proyecto__cabecera">
+              <span class="proyecto__num" aria-hidden="true">02</span>
+              <span class="proyecto__tipo">Frontend · datos</span>
+            </div>
+            <h3>Nimbus</h3>
+            <p class="proyecto__resumen">
+              Panel de analítica de ventas: KPIs, evolución mensual, canales y una tabla de
+              productos ordenable y filtrable, con tema claro y oscuro.
+            </p>
+            <ul class="proyecto__detalles">
+              <li>Gráficos <strong>SVG propios</strong>, sin librerías: control total del render y del peso.</li>
+              <li><strong>React 18 + TypeScript strict</strong>, estado derivado y componentes pequeños.</li>
+              <li>Estados de carga, error y vacío; <strong>19 tests</strong> con Vitest y Testing Library.</li>
+            </ul>
+            <ul class="chips" aria-label="Tecnologías">
+              <li>React</li><li>TypeScript</li><li>Vite</li><li>Vitest</li><li>CSS</li>
+            </ul>
+            <div class="proyecto__enlaces">
+              <a class="enlace-flecha" href="demos/nimbus/" target="_blank" rel="noopener noreferrer">
+                Ver demo
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+              </a>
+              <a class="enlace-flecha enlace-flecha--suave" href="https://github.com/HazSy/nimbus-dashboard" target="_blank" rel="noopener noreferrer">Código</a>
+              <span class="proyecto__meta">19 tests</span>
+            </div>
+          </article>
+
+          <!-- TaskFlow -->
+          <article class="proyecto aparecer">
+            <div class="proyecto__cabecera">
+              <span class="proyecto__num" aria-hidden="true">03</span>
+              <span class="proyecto__tipo">Backend · API REST</span>
+            </div>
+            <h3>TaskFlow API</h3>
+            <p class="proyecto__resumen">
+              API para gestionar proyectos y tareas con usuarios, autenticación JWT y control
+              de acceso: cada persona solo ve lo que le pertenece.
+            </p>
+            <ul class="proyecto__detalles">
+              <li><strong>Node 22 + TypeScript + Express 5</strong> con capas separadas (rutas, servicios, datos).</li>
+              <li><strong>Prisma + SQLite</strong>: modelo relacional, migraciones y seed reproducible.</li>
+              <li>Validación con Zod, manejo central de errores y <strong>13 tests</strong> de integración.</li>
+            </ul>
+            <ul class="chips" aria-label="Tecnologías">
+              <li>Node.js</li><li>TypeScript</li><li>Express</li><li>Prisma</li><li>JWT</li><li>Vitest</li>
+            </ul>
+            <div class="proyecto__enlaces">
+              <a class="enlace-flecha" href="https://github.com/HazSy/taskflow-api" target="_blank" rel="noopener noreferrer">
+                Ver código
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+              </a>
+              <span class="proyecto__meta">13 tests</span>
+            </div>
+          </article>
+
+          <!-- Inventra -->
+          <article class="proyecto aparecer">
+            <div class="proyecto__cabecera">
+              <span class="proyecto__num" aria-hidden="true">04</span>
+              <span class="proyecto__tipo">Full stack · PHP</span>
+            </div>
+            <h3>Inventra</h3>
+            <p class="proyecto__resumen">
+              Gestor de inventario para pequeñas empresas: productos, stock mínimo, histórico
+              de movimientos y métricas, con autenticación y panel responsive.
+            </p>
+            <ul class="proyecto__detalles">
+              <li><strong>PHP 8.4 + MySQL</strong> con MVC propio: router, validación y vistas sin framework.</li>
+              <li>Defensa en profundidad: <strong>CSRF</strong>, PDO preparado, escapado HTML y CSP.</li>
+              <li>Vista SQL de stock bajo y trigger de auditoría; <strong>31 tests</strong> con PHPUnit.</li>
+            </ul>
+            <ul class="chips" aria-label="Tecnologías">
+              <li>PHP</li><li>MySQL</li><li>PDO</li><li>PHPUnit</li><li>CSS</li>
+            </ul>
+            <div class="proyecto__enlaces">
+              <a class="enlace-flecha" href="https://github.com/HazSy/inventra-php" target="_blank" rel="noopener noreferrer">
+                Ver código
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9"/></svg>
+              </a>
+              <span class="proyecto__meta">31 tests</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FORMACIÓN ================= -->
+    <section class="seccion seccion--alt" id="formacion">
+      <div class="contenedor">
+        <header class="seccion__cabecera aparecer">
+          <p class="etiqueta">04 · Formación</p>
+          <h2>Aprendizaje formal<br>y mucho autoaprendizaje</h2>
+        </header>
+
+        <div class="formacion__grid">
+          <article class="tarjeta-formacion aparecer">
+            <p class="tarjeta-formacion__periodo">2025 — 2027 · en curso</p>
+            <h3>Ciclo Superior en Desarrollo de Aplicaciones Web</h3>
+            <p class="tarjeta-formacion__lugar">DAW · Murcia</p>
+            <p>
+              Programación, bases de datos, desarrollo en servidor y cliente, despliegue
+              y entornos de desarrollo. Actualmente cursando el segundo año.
+            </p>
+            <ul class="chips">
+              <li>Java</li><li>SQL</li><li>HTML/CSS</li><li>JavaScript</li><li>PHP</li>
+            </ul>
+          </article>
+
+          <article class="tarjeta-formacion aparecer">
+            <p class="tarjeta-formacion__periodo">Continuo</p>
+            <h3>Proyectos y documentación oficial</h3>
+            <p class="tarjeta-formacion__lugar">Autoaprendizaje</p>
+            <p>
+              Aprendo construyendo: cada proyecto nuevo introduce una tecnología que no
+              dominaba (TypeScript, FastAPI, LangGraph) y termina con tests y CI.
+            </p>
+            <ul class="chips">
+              <li>Clean Code</li><li>Testing</li><li>RAG</li><li>Git</li><li>Docker</li>
+            </ul>
+          </article>
+
+          <aside class="tarjeta-formacion tarjeta-formacion--idiomas aparecer">
+            <p class="tarjeta-formacion__periodo">Idiomas</p>
+            <h3>Comunicación</h3>
+            <ul class="idiomas">
+              <li><span>Español</span><span class="idiomas__nivel">Nativo</span></li>
+              <li><span>Inglés</span><span class="idiomas__nivel">Lectura técnica y documentación</span></li>
+            </ul>
+            <p class="muted">Acostumbrado a trabajar con documentación y errores en inglés.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTO ================= -->
+    <section class="seccion contacto" id="contacto">
+      <div class="contenedor">
+        <div class="contacto__caja aparecer">
+          <p class="etiqueta">05 · Contacto</p>
+          <h2>¿Buscas a alguien<br>con ganas y fundamentos?</h2>
+          <p class="contacto__texto">
+            Estoy disponible para prácticas o un primer empleo como desarrollador junior
+            en Murcia o en remoto. Cuéntame qué necesita tu equipo y te respondo.
+          </p>
+
+          <div class="contacto__acciones">
+            <a class="boton boton--primario boton--grande" href="mailto:oscarlopezpellicer6@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+              Escríbeme
+            </a>
+            <button class="boton boton--fantasma boton--grande" id="copiar" type="button" data-email="oscarlopezpellicer6@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+              <span>Copiar email</span>
+            </button>
+          </div>
+
+          <p class="contacto__aviso" id="aviso" role="status" aria-live="polite"></p>
+
+          <ul class="contacto__redes">
+            <li>
+              <a href="https://github.com/HazSy" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+                github.com/HazSy
+              </a>
+            </li>
+            <li>
+              <a href="mailto:oscarlopezpellicer6@gmail.com">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+                oscarlopezpellicer6@gmail.com
+              </a>
+            </li>
+            <li>
+              <span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                Murcia, España
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__interior">
+      <p>© <span id="anio">2026</span> Óscar López Pellicer</p>
+      <p>Hecho a mano con HTML, CSS y JavaScript · <a href="https://github.com/HazSy/hazsy.github.io" target="_blank" rel="noopener noreferrer">código del sitio</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
