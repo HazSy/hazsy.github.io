@@ -50,11 +50,11 @@ html[data-theme="light"] {
 
   --texto: #0e1726;
   --texto-suave: #4b5d73;
-  --texto-tenue: #6d7f94;
+  --texto-tenue: #5b6b7e;
 
-  --acento: #0d9488;
-  --acento-2: #0284c7;
-  --acento-3: #7c3aed;
+  --acento: #0f766e;
+  --acento-2: #0369a1;
+  --acento-3: #6d28d9;
   --acento-texto: #ffffff;
 
   --sombra: 0 24px 50px -24px rgba(15, 23, 42, 0.25);
