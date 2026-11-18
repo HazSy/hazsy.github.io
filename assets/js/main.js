@@ -92,7 +92,7 @@
   function marcarActiva() {
     pendiente = false;
     const y = window.scrollY + 120;
-    let actual = secciones[0];
+    let actual = null;
 
     secciones.forEach(function (seccion) {
       if (seccion.offsetTop <= y) actual = seccion;
@@ -104,8 +104,9 @@
     }
 
     enlacesNav.forEach(function (enlace, i) {
-      enlace.classList.toggle("activo", secciones[i] === actual);
-      if (secciones[i] === actual) {
+      const activo = actual !== null && secciones[i] === actual;
+      enlace.classList.toggle("activo", activo);
+      if (activo) {
         enlace.setAttribute("aria-current", "true");
       } else {
         enlace.removeAttribute("aria-current");
@@ -140,6 +141,13 @@
       el.style.transitionDelay = Math.min(indice % 4, 3) * 70 + "ms";
       observador.observe(el);
     });
+
+    // Red de seguridad: si el observador no dispara (pestaña en segundo plano,
+    // impresión, navegador antiguo), todo el contenido acaba visible.
+    window.setTimeout(function () {
+      elementos.forEach(function (el) { el.classList.add("visible"); });
+      observador.disconnect();
+    }, 3000);
   }
 
   /* --------------------------------------------------- Copiar email */
